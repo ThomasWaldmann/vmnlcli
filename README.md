@@ -24,20 +24,19 @@ Now you can write 2 small wrapper scripts:
 
 ### myvm-now-km
 
-python3 vmnlcli.py --email 'youremail@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
+    python3 vmnlcli.py --email 'youremail@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
 
 ### myvm-date-km
 
-python3 vmnlcli.py --email 'youremail@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
+    python3 vmnlcli.py --email 'youremail@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
 
 ## Usage
 
 You just came home, odometer showed 4321 km and you want to update the site:
 
-myvm-now-km 4321
+    myvm-now-km 4321
 
 Or, you noted that your odometer showed 4321 km at 2019-12-31 and you want to update the site with that:
 
-myvm-date-km 2019-12-31 4321
-
+    myvm-date-km 2019-12-31 4321
 
