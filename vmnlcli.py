@@ -3,18 +3,6 @@ Command line interface for velomobiel.nl.
 
 (c) 2019 by Thomas Waldmann <twaldmann@thinkmo.de>.
 Licensed under the MIT license.
-
-Installation:
-
-- you need python 3.5+
-- you need the "requests" python library
-
-  - pip3 install requests  # anywhere
-  - apt-get install python3-requests  # debian/ubuntu
-
-Usage:
-
-- invoke the script to get the usage help text.
 """
 
 import argparse
