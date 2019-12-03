@@ -1,3 +1,5 @@
+![velomobiel.nl QuattroVelo](https://gallery.welmers.net/main.php?g2_view=core.DownloadItem&g2_itemId=47348)
+
 # vmnlcli.py
 
 This is a command line interface for the http://www.velomobiel.nl/ website.
