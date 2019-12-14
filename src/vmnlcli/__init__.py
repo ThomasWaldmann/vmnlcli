@@ -98,12 +98,12 @@ def main(argv=None):
     parser = create_parser()
     args = parser.parse_args(argv[1:])
     try:
-        if args.cmd == 'help':
-            parser.print_help()
-        elif args.cmd == 'vmid':
+        if args.cmd == 'vmid':
             get_vmid(args.email, args.password)
         elif args.cmd == 'update':
             put_distance(args.email, args.password, args.vmid, args.date, args.distance)
+        else:  # either 'help' or no cmd given
+            parser.print_help()
     except Error as err:
         print(str(err))
         rc = 1
