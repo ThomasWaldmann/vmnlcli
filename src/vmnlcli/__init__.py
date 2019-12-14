@@ -91,7 +91,10 @@ def create_parser():
     return parser
 
 
-def main(argv):
+def main(argv=None):
+    pure_func_call = argv is not None  # for testing: give argv, get rc returned
+    if not pure_func_call:
+        argv = sys.argv
     parser = create_parser()
     args = parser.parse_args(argv[1:])
     try:
@@ -103,12 +106,15 @@ def main(argv):
             put_distance(args.email, args.password, args.vmid, args.date, args.distance)
     except Error as err:
         print(str(err))
-        return 1
+        rc = 1
     else:
-        return 0
+        rc = 0
+    if pure_func_call:
+        return rc
+    else:
+        sys.exit(rc)
 
 
 if __name__ == '__main__':
-    rc = main(sys.argv)
-    sys.exit(rc)
+    main()
 
