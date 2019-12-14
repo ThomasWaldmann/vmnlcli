@@ -25,15 +25,27 @@ Only once, you need to find out the VMID (internal numerical identifier of velom
 
 Let's assume it displayed that your VMID is 12345678.
 
-Now you can write 2 small wrapper scripts:
+Now you can write 2 small wrapper scripts (they slightly differ for linux vs. windows).
 
-### myvm-now-km
+### Linux wrapper scripts
+
+#### myvm-now-km
 
     vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
 
-### myvm-date-km
+#### myvm-date-km
 
     vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
+
+### Windows wrapper scripts
+
+#### myvm-now-km.cmd
+
+    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update %1
+
+#### myvm-date-km.cmd
+
+    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date %1 %2
 
 ## Usage
 
