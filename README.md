@@ -10,12 +10,14 @@ so you do not need to manually log in / fill out a form / log out.
 
 ## Installation
 
-- you need Python >= 3.5
-- on a shell, enter this to install the vmnlcli software:
+You need to have Python >= 3.5 installed.
+See https://www.python.org/ if you don't have it already.
+
+On a shell (linux terminal, windows cmd.exe), enter this to install the vmnlcli software:
 
     pip3 install vmnlcli         # system-wide installation, might require root/admin
     or
-    pip3 install --user vmnlcli  # install into user's home directory
+    pip3 install --user vmnlcli  # install into user's home/profile directory
 
 Only once, you need to find out the VMID (internal numerical identifier of velomobiel.nl for your velomobile):
 
