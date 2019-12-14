@@ -1,6 +1,6 @@
 ![velomobiel.nl QuattroVelo](https://gallery.welmers.net/main.php?g2_view=core.DownloadItem&g2_itemId=47348)
 
-# vmnlcli.py
+# vmnlcli
 
 This is a command line interface for the http://www.velomobiel.nl/ website.
 
@@ -10,15 +10,16 @@ so you do not need to manually log in / fill out a form / log out.
 
 ## Installation
 
-- you need Python 3.5+
-- you need the "requests" python library
+- you need Python >= 3.5
+- on a shell, enter this to install the vmnlcli software:
 
-  - pip3 install requests  # anywhere
-  - apt-get install python3-requests  # debian/ubuntu
+    pip3 install vmnlcli         # system-wide installation, might require root/admin
+    or
+    pip3 install --user vmnlcli  # install into user's home directory
 
 Only once, you need to find out the VMID (internal numerical identifier of velomobiel.nl for your velomobile):
 
-    python3 vmnlcli.py --email 'you@example.org' --password 'CarsS*ck' vmid
+    vmnlcli --email 'you@example.org' --password 'CarsS*ck' vmid
 
 Let's assume it displayed that your VMID is 12345678.
 
@@ -26,11 +27,11 @@ Now you can write 2 small wrapper scripts:
 
 ### myvm-now-km
 
-    python3 vmnlcli.py --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
+    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
 
 ### myvm-date-km
 
-    python3 vmnlcli.py --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
+    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
 
 ## Usage
 
