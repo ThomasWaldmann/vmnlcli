@@ -1,7 +1,9 @@
 """
-Command line interface for velomobiel.nl.
+Command line interface for some dutch velomobile web sites, including:
+- www.velomobiel.nl
+- www.intercitybike.nl
 
-(c) 2019 by Thomas Waldmann <twaldmann@thinkmo.de>.
+(c) 2019-2020 by Thomas Waldmann <twaldmann@thinkmo.de>.
 Licensed under the MIT license.
 """
 
@@ -13,30 +15,30 @@ from contextlib import contextmanager
 import requests
 
 
-LOGIN_URL = 'http://en.velomobiel.nl/user/login.php'
-DISTANCE_URL = 'http://en.velomobiel.nl/user/kmstand.php'
-
-
 class Error(Exception):
     """raised in case of internal errors"""
 
 
 @contextmanager
-def login(email, password):
+def login(site, email, password):
+    if not site:
+        raise Error('no SITE was given, use --site')
     if not email:
         raise Error('no EMAIL was given, use --email')
     if not password:
         raise Error('no PASSWORD was given, use --password')
     with requests.Session() as session:
-        r = session.post(LOGIN_URL, data={'email': email, 'password': password})
+        login_url = site + '/user/login.php'
+        r = session.post(login_url, data={'email': email, 'password': password})
         if r.status_code != 200:
             raise Error('got http status %d' % r.status_code)
         yield session
 
 
-def get_vmid(email, password):
-    with login(email, password) as session:
-        r = session.get(DISTANCE_URL)
+def get_vmid(site, email, password):
+    with login(site, email, password) as session:
+        distance_url = site + '/user/kmstand.php'
+        r = session.get(distance_url)
         if r.status_code != 200:
             raise Error('got http status %d' % r.status_code)
         extract_re = re.compile(r"""
@@ -54,13 +56,14 @@ def get_vmid(email, password):
             print("%s == vmid %d" % (vmname, vmid))
 
 
-def put_distance(email, password, vmid, date, distance):
+def put_distance(site, email, password, vmid, date, distance):
     if not vmid:
         raise Error('no VMID was given, use --vmid')
 
-    with login(email, password) as session:
+    with login(site, email, password) as session:
         yyyy, mm, dd = date.split('-')
-        r = session.post(DISTANCE_URL,
+        distance_url = site + '/user/kmstand.php'
+        r = session.post(distance_url,
                 data={
                     'nieuw_datum_jaar[%d]' % vmid: yyyy,
                     'nieuw_datum_maand[%d]' % vmid: mm,
@@ -75,6 +78,7 @@ def put_distance(email, password, vmid, date, distance):
 def create_parser():
     parser = argparse.ArgumentParser(description='velomobiel.nl command line interface')
     parser.add_argument('--verbose', action='store_true', help='more verbose output')
+    parser.add_argument('--site', type=str, help='website to log in to, format: https://www.example.org')
     parser.add_argument('--email', type=str, help='email address to use for logging in')
     parser.add_argument('--password', type=str, help='password to use for logging in')
     parser.add_argument('--vmid', metavar='VMID', type=int, default=0, help='ID of the velomobile')
@@ -99,9 +103,9 @@ def main(argv=None):
     args = parser.parse_args(argv[1:])
     try:
         if args.cmd == 'vmid':
-            get_vmid(args.email, args.password)
+            get_vmid(args.site, args.email, args.password)
         elif args.cmd == 'update':
-            put_distance(args.email, args.password, args.vmid, args.date, args.distance)
+            put_distance(args.site, args.email, args.password, args.vmid, args.date, args.distance)
         else:  # either 'help' or no cmd given
             parser.print_help()
     except Error as err:

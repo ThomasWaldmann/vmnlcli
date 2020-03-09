@@ -2,7 +2,11 @@
 
 # vmnlcli
 
-This is a command line interface for the http://www.velomobiel.nl/ website.
+This is a command line interface for these dutch velomobile web sites:
+- http://www.velomobiel.nl
+- https://www.intercitybike.nl
+
+It might also work for other velomobile sites hosted at welmers.net which use the same server side software.
 
 Using it, you can script updating / publishing your velomobile's odometer value (overall km distance of your velomobile),
 so you do not need to manually log in / fill out a form / log out.
@@ -19,9 +23,9 @@ On a shell (linux terminal, windows cmd.exe), enter this to install the vmnlcli 
     or
     pip3 install --user vmnlcli  # install into user's home/profile directory
 
-Only once, you need to find out the VMID (internal numerical identifier of velomobiel.nl for your velomobile):
+Only once, you need to find out the VMID (internal numerical identifier for your velomobile):
 
-    vmnlcli --email 'you@example.org' --password 'CarsS*ck' vmid
+    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' vmid
 
 Let's assume it displayed that your VMID is 12345678.
 
@@ -31,21 +35,21 @@ Now you can write 2 small wrapper scripts (they slightly differ for linux vs. wi
 
 #### myvm-now-km
 
-    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
+    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
 
 #### myvm-date-km
 
-    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
+    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
 
 ### Windows wrapper scripts
 
 #### myvm-now-km.cmd
 
-    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update %1
+    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update %1
 
 #### myvm-date-km.cmd
 
-    vmnlcli --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date %1 %2
+    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date %1 %2
 
 ## Usage
 

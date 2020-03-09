@@ -15,15 +15,15 @@ with open('README.md') as f:
 
 setup(
     name='vmnlcli',
-    version='0.1.0',
+    version='0.2.0',
     url='http://github.com/thomaswaldmann/velomobielnl/',
     license='MIT',
     author='Thomas Waldmann',
     author_email='twaldmann@thinkmo.de',
-    description='command line interface for the http://www.velomobiel.nl/ website',
+    description='command line interface for some dutch velomobile websites',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    keywords="velomobile odometer velomobiel.nl cli",
+    keywords="velomobile odometer cli velomobiel.nl intercitybike.nl welmers.net",
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
