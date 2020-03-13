@@ -25,7 +25,7 @@ On a shell (linux terminal, windows cmd.exe), enter this to install the vmnlcli 
 
 Only once, you need to find out the VMID (internal numerical identifier for your velomobile):
 
-    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' vmid
+    vmnlcli --site http://www.velomobiel.nl --email you@example.org --password CarsSuck vmid
 
 Let's assume it displayed that your VMID is 12345678.
 
@@ -35,21 +35,21 @@ Now you can write 2 small wrapper scripts (they slightly differ for linux vs. wi
 
 #### myvm-now-km
 
-    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update $1
+    vmnlcli --site http://www.velomobiel.nl --email you@example.org --password CarsSuck --vmid 12345678 update $1
 
 #### myvm-date-km
 
-    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date $1 $2
+    vmnlcli --site http://www.velomobiel.nl --email you@example.org --password CarsSuck --vmid 12345678 update --date $1 $2
 
 ### Windows wrapper scripts
 
 #### myvm-now-km.cmd
 
-    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update %1
+    vmnlcli --site http://www.velomobiel.nl --email you@example.org --password CarsSuck --vmid 12345678 update %1
 
 #### myvm-date-km.cmd
 
-    vmnlcli --site http://www.velomobiel.nl --email 'you@example.org' --password 'CarsS*ck' --vmid 12345678 update --date %1 %2
+    vmnlcli --site http://www.velomobiel.nl --email you@example.org --password CarsSuck --vmid 12345678 update --date %1 %2
 
 ## Usage
 
