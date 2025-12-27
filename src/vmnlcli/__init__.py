@@ -3,7 +3,7 @@ Command line interface for some dutch velomobile web sites, including:
 - www.velomobiel.nl
 - www.intercitybike.nl
 
-(c) 2019-2020 by Thomas Waldmann <twaldmann@thinkmo.de>.
+(c) 2019-2025 by Thomas Waldmann <twaldmann@thinkmo.de>.
 Licensed under the MIT license.
 """
 

@@ -14,7 +14,7 @@ so you do not need to manually log in / fill out a form / log out.
 
 ## Installation
 
-You need to have Python >= 3.5 installed.
+You need to have Python >= 3.10 installed.
 See https://www.python.org/ if you don't have it already.
 
 On a shell (linux terminal, windows cmd.exe), enter this to install the vmnlcli software:
