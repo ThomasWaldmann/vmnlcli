@@ -4,7 +4,7 @@ dynamic = ["readme"]
 version = "0.3.0"
 authors = [{name="Thomas Waldmann", email="twaldmann@thinkmo.de"}]
 description = "command line interface for some dutch velomobile websites"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 keywords = ["velomobile", "odometer", "cli", "velomobiel.nl", "intercitybike.nl", "welmers.net"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -13,10 +13,11 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Utilities",
     "Topic :: Database :: Front-Ends",
     "Topic :: Internet :: WWW/HTTP :: Site Management",
