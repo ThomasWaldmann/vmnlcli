@@ -9,7 +9,6 @@ keywords = ["velomobile", "odometer", "cli", "velomobiel.nl", "intercitybike.nl"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -22,7 +21,8 @@ classifiers = [
     "Topic :: Database :: Front-Ends",
     "Topic :: Internet :: WWW/HTTP :: Site Management",
 ]
-license = {text="MIT"}
+license = "MIT"
+license-files = ["LICENSE"]
 dependencies = [
   "requests",
 ]
@@ -44,5 +44,5 @@ include-package-data = true
 where = ["src"]
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=78.1.1", "wheel"]
 build-backend = "setuptools.build_meta"
